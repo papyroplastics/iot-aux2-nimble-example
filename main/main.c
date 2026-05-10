@@ -85,7 +85,7 @@ struct ble_gatt_svc_def gatt_svcs[] = {
 };
 
 void on_stack_reset(int reason) {
-  printf("NimBLE se reinició con motivo %d", reason);
+  printf("NimBLE se reinició con motivo %d\n", reason);
 }
 
 void start_adv(void);
@@ -143,7 +143,7 @@ void start_adv(void) {
   ble_gap_adv_start(ble_addr_type, NULL, BLE_HS_FOREVER, &adv_params, 
       connection_event_handler, NULL);
 
-  printf("Advertisment comenzado");
+  printf("Advertisment comenzado\n");
 }
 
 void on_stack_sync(void) {
@@ -169,9 +169,8 @@ void app_main(void) {
   printf("Nimble comenzado\n");
   nimble_port_run();
 
-  printf("Nimble se detuvo ineperadamente, reiniciando...");
+  printf("Nimble se detuvo ineperadamente, reiniciando...\n");
   sleep(2);
 
   esp_restart();
-
 }
